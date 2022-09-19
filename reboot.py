@@ -8,7 +8,7 @@ def sshReboot(ip):
     try:
         ssh = paramiko.SSHClient()
         ssh.set_missing_host_key_policy(paramiko.AutoAddPolicy())
-        ssh.connect(ip,username,password,timeout=5)
+        ssh.connect(ip,22,username,password,timeout=5)
         stdin,stdout,stderr = ssh.exec_command(cmd)
         print(stdout.read())
         print('%s OK\n'%(ip))
